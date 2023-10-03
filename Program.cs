@@ -25,6 +25,20 @@ namespace Curso_CSharp
 
             DolarActual.DolarCambiando(750);
             Console.WriteLine(DolarActual.DolaresTengo(1500));
+
+            // Metodo Puente Gruas.
+            PuenteGruas Grua11 = new PuenteGruas();
+            PuenteGruas Grua12 = new PuenteGruas(3, 4);
+
+            // accedemos a las propiedades de una instancia
+            Console.WriteLine(Grua11.getInfoGrua());
+
+            Console.WriteLine(Grua11.getInfoGrua());
+
+            //Accedemos a las propiedades de otra instancia.
+
+            Console.WriteLine(Grua12.getInfoGrua());
+
         }
     }
     //Creacion de Una Clase
@@ -65,7 +79,44 @@ namespace Curso_CSharp
                 dolar = nuevoValor;
         }
     }
-}/*Glosario
+
+    class PuenteGruas
+    {
+        /*En este metodo haremos un ejemplo del constructor de la clase*/
+
+        public PuenteGruas() 
+            // Constructor de la clase.
+        {
+            ruedas = 4;
+            puente = 1;
+            carro = 2;
+        }
+        private int ruedas;
+        private int puente;
+        private int carro;
+
+        //Metodo que retorna el valor de una propiedad
+        public int getRuedas()
+        {
+            return ruedas;
+        }
+        // Metodo que retorna informacion general de las proipiedades.
+        public String getInfoGrua()
+        {
+            return "info de la Grua" + "Ruedas" + ruedas + "puente" + puente;
+        }
+
+        // Metodo para modificar Propiedades y es una clase con sobrecarga porue tiene dos metodos cone el mismo metodo
+
+        public PuenteGruas(int puenteG, int carroG) 
+        {
+            puente=puenteG;
+            carro=carroG;
+        }
+    }
+}
+
+/*Glosario
   Encapsulacion: Es Proteger la funcion o variable dentro de una clase, y no permitir accesos externos.
   Esto lo logramos a traves de la palabra private.
 
