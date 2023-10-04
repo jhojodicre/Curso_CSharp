@@ -1,18 +1,41 @@
 ﻿using System;
+using System.Collections.Generic;
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
+using System.IO.Ports;
 
 namespace Curso_CSharp
 {
     //Clase Por defecto
+
+ 
     internal class Program
-    {
+    { 
+        string SerialRX = "";
+        static SerialPort SerialESP;
         static void Main(string[] args)
         {
-            Console.WriteLine("Comenzaremos Instanciando Un Objeto de una clase.");
+            //bool    SerialClose = false;
+            SerialESP = new SerialPort();
 
+            Console.WriteLine("Aprendiendo Programar en C#.");
+            Console.WriteLine("Como te llamas");
+            string nombreAprendiz  = Console.ReadLine();
+
+
+            Console.WriteLine($"Hola {nombreAprendiz}");
+            Console.WriteLine("Esta es una guia que te ayudara aprender los conceptos basicos de C#");
+
+
+            //string SerialESP_COM = 
+            SerialESP.BaudRate = 9600;
+            SerialESP.Parity = Parity.None;
+            //string SerialESP_PORT = SerialESP.SerialCOM();
+            SerialCOM();
+            SerialESP.Open();
+            //SerialConnet();
             /* miCirculo es una Instancia (Ejemplar) de la Clase Circulo; 
             es decir es un Variable/Objeto de tipo Circulo
             Es semejante al definir una variable de tipo int, Esta variable se ha Iniciado al realizar New Circulo.
@@ -39,6 +62,41 @@ namespace Curso_CSharp
 
             Console.WriteLine(Grua12.getInfoGrua());
 
+        }
+
+        //static void SerialConnet()
+        //{
+            
+        //    //SerialESP.PortName = "COM3";
+        //    //SerialESP.BaudRate = 9600;
+        //    //SerialESP.ReadTimeout = 500;
+        //}
+        public void SerialRecive()
+        { 
+            while( SerialESP.IsOpen )
+            {
+                try
+                {
+                    SerialRX = SerialESP.ReadLine();
+                }
+                catch { }
+            }
+        }
+
+        public static string SerialCOM()
+        {
+            var comListados = new List<string> { };
+            string puertoSerial;
+            Console.WriteLine("Puertos Disponibles");
+            foreach(string com in SerialPort.GetPortNames())
+            {
+                Console.WriteLine("  {0}", com);
+                comListados.Add(com);
+            }
+            Console.WriteLine("Indique el Puerto COM");
+            Console.WriteLine(comListados.Count);
+            puertoSerial = Console.ReadLine();
+            return puertoSerial;
         }
     }
     //Creacion de Una Clase
@@ -114,6 +172,8 @@ namespace Curso_CSharp
             carro=carroG;
         }
     }
+
+
 }
 
 /*Glosario
