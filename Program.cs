@@ -25,12 +25,13 @@ namespace Curso_CSharp
             //1. Instancias
             SirvePara PaQSirve = new SirvePara();
             Glosario QueEs = new Glosario();
-
+            Klase Clase = new Klase();
 
             //2. Consultas
             PaQSirve._partial();
-            QueEs.retomarProgramacion();
-            // TODO:
+            QueEs.PascalCase();
+
+            Clase.GetInformacion();
         }
     }
 
@@ -38,23 +39,25 @@ namespace Curso_CSharp
     {
         public void PascalCase()
         {
-            List<string> concepto = new List<string>
-            {
-            "PascalCase:\n",
-            "   Es una Convencion; Todas las variables, metodos de tipo public deben comenzar con la primera letra de\n las palabaras en Mayuscula.\n",
-            "       Por ejemplo:\n",
-            "           MiMetodo"
-            };
+            string nombre               = "PascalCase:\n";
+            string definicion           = "Es una Convencion; Todas las variables, metodos de tipo public deben comenzar con la primera letra de\n las palabaras en Mayuscula.\n";
+            string ejemplo              = "       Por ejemplo:\n";
+            string implementacion       = "           MiMetodo";
+            string nota = "";
+            string notaDefinicion = "\n\n";
         }
         public void camelCase()
         {
-            List<string> concepto = new List<string>
+            List<string> lista = new List<string>
             {
             "camelCase:\n",
             "   Es cuando una variable o metodo es de acceso private la primera palabra serà en Minuscula ejemplo: miFuncion",
             "       Por ejemplo:\n",
-            ""
+            "",
+            "Nota:\n",
+            "   ->"
             };
+            ImprimirDefinicion(lista);
         }
         public void ConstructorDef()
         {
@@ -171,6 +174,21 @@ namespace Curso_CSharp
             ""
             };
         }
+        public void campoDeClase()
+        {
+            List<string> lista = new List<string>
+            {
+            "Campo de Clase:\n",
+            "   Es una propiedad o Variable creada dentro de una Clase",
+            "       Por ejemplo:\n",
+            "class CampodeClase\n" +
+            "{\n" +
+            "public int VariableNew = 1;" +
+            "\n" +
+            "}" +
+            "\n\n"
+            };
+        }
         public void retomarProgramacion()
         {
             List<string> lista = new List<string>
@@ -187,16 +205,60 @@ namespace Curso_CSharp
         }
         public void ImprimirDefinicion(List<string> concepto)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(concepto[0]);
-            Console.ResetColor();
-            Console.WriteLine(concepto[1]);
+            try
+            {
+                //1. Definicion
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(concepto[0]);
+                Console.ResetColor();
+                Console.WriteLine(concepto[1]);
 
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(concepto[2]);
-            Console.ResetColor();
-            Console.WriteLine(concepto[3]);
+                //2. Por Ejemplo
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine(concepto[2]);
+                //3. Referencia de Ejemplo
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(concepto[3]);
+
+                //3. Detalles del Ejemplo
+                Console.ResetColor();
+                Console.WriteLine(concepto[4]);
+
+                //4. Nota
+                Console.WriteLine(concepto[5]);
+            }
+            catch (Exception e) { }
+
         }
+        
     }
-    
+    //TODO: Realizar otra clase con otros metodos distintos,
+    public class Part : IEquatable<Part>
+    {
+        public string PartName { get; set; }
+        public int PartId { get; set; }
+
+        public override string ToString()
+        {
+            return "ID: " + PartId + "   Name: " + PartName;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            Part objAsPart = obj as Part;
+            if (objAsPart == null) return false;
+            else return Equals(objAsPart);
+        }
+        public override int GetHashCode()
+        {
+            return PartId;
+        }
+        public bool Equals(Part other)
+        {
+            if (other == null) return false;
+            return (this.PartId.Equals(other.PartId));
+        }
+        // Should also override == and != operators.
+    }
+
 }

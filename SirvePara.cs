@@ -70,30 +70,31 @@ namespace Curso_CSharp
         }
         public void ImprimirDefinicion(List<string> concepto)
         {
-            //Console.ForegroundColor = ConsoleColor.Green;
+            //1. Titulo
             Console.WriteLine(concepto[0]);
-
+            //2.Palabra Reservada
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(concepto[1]);
             Console.ResetColor();
             Console.WriteLine(concepto[2]);
 
-            //Advertencia.
+            //3. Advertencia.
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(concepto[3]);
 
 
-            // Por Ejemplo
+            //4. Por Ejemplo
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(concepto[4]);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(concepto[5]);
 
+            //5. Explicacion
             Console.ResetColor();
             Console.WriteLine(concepto[6]);
             Console.WriteLine(concepto[7]);
 
-            //Nota
+            //6. Nota
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(concepto[8]);
             Console.ResetColor();
