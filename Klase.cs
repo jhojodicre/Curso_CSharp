@@ -77,7 +77,7 @@ namespace Curso_CSharp
             (Rcordando que String es un tipo de variable Objeto NO es primitivo con "int" ó "double").
             Entonces este metodo que llamamos, recibe tambien un Parametro de tipo Objeto y Ese Objeto es una Instancia de su propia Klase*/
         
-            //TODO: Continuar Desarrollando esta Clase. y Ejemplificarla.
+            //TODO: Continuar Desarrollando esta Clase. y Ejemplificarla. kj
         //}
 
     }
