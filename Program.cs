@@ -26,12 +26,13 @@ namespace Curso_CSharp
             SirvePara PaQSirve = new SirvePara();
             Glosario QueEs = new Glosario();
             Klase Clase = new Klase();
+            Definir Definicion = new Definir();
 
             //2. Consultas
-            PaQSirve._partial();
-            QueEs.PascalCase();
-
-            Clase.GetInformacion();
+            //PaQSirve._partial();
+            //QueEs.PascalCase();
+            //Clase.GetInformacion();
+            Definicion.Imprimir(Definicion);
         }
     }
 
