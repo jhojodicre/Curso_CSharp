@@ -30,14 +30,32 @@ namespace Curso_CSharp
 
             //2. Consultas
             //PaQSirve._partial();
-            //QueEs.PascalCase();
+            QueEs.ClasesAnonimas();
             //Clase.GetInformacion();
-            Definicion.Imprimir(Definicion);
+            //Definicion.Imprimir(Definicion);
         }
     }
 
     public class Glosario
     {
+        public void ClasesAnonimas()
+        {
+            List<string> lista = new List<string>
+            {
+            "ClasesAnonimas:\n",
+            "   Son utiles cuando instanciamos una Variable o un grupo de variables sin definir la clase",
+            "       Por ejemplo:\n",
+            "           var miVariable = new { Nombre = Jhonny, Edad = 35}\n",
+            "               Es Necesario Utilizar var.\n" +
+            "               Automaticamente el compilador detecta el tipo de datos de cada una de las Variables",
+            "Nota:\n",
+            "   Es Necesario Inicializar las variables de Campo\n" +
+            "   Solo pueden contener campos Publicos\n" +
+            "   Los Campos no pueden Ser Static\n" +
+            "   No se pueden Definir metodos dentro de ua claser anonima"
+            };
+            ImprimirDefinicion(lista);
+        }
         public void PascalCase()
         {
             string nombre               = "PascalCase:\n";

@@ -38,6 +38,9 @@ namespace Curso_CSharp
         private bool propiedadAdicional;
         private bool nombresIguales = false;
 
+        private int[] Arreglo = new int[5]; // Esto es un array.
+        private int[] OtraArray = {1,2,3,4,5}; // otra forma de array.
+        private int[] OtraArray_2 =[5] { 1, 2, 3, 4, 5 }; // otra forma de array restringido.
         //3. Metodos de la Clase
 
         //-3.1 Metodo Get: Nos da informacion de una propiedad de la clase.
